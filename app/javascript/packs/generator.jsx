@@ -110,7 +110,9 @@ class BackButton extends React.Component {
 
   render() {
     return(
-      <a href="" onClick={this.props.handleClick}>Previous</a>
+      <div>
+        <p onClick={this.props.handleClick}>Previous</p>
+      </div>
     )
   }
 }
@@ -122,7 +124,9 @@ class NextButton extends React.Component {
 
   render() {
     return(
-      <a href="" onClick={this.props.handleClick}>Next</a>
+      <div>
+        <p onClick={this.props.handleClick}>Next</p>
+      </div>
     )
   }
 }
