@@ -7,13 +7,29 @@ class Question extends React.Component {
     super(props)
     this.state = {
       price: 0,
+      needToRecalc: false,
       eCommerce: false,
       cms: false,
       blog: false,
       events: false,
       faqs: false,
       portfolio: false,
-      careers: false
+      careers: false,
+      mailingList: false,
+      map: false,
+      mapLocations: false,
+      gallery: false,
+      carousel: false,
+      extraPages: 0,
+      designPages: 0,
+      contentPages: 0,
+      seo: 0
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.state.needToRecalc) {
+      this.calcPrice()
     }
   }
 
@@ -22,9 +38,49 @@ class Question extends React.Component {
   }
 
   toggleCheckbox(prop) {
-    let toToggle = {}
+    let toToggle = { needToRecalc: true }
     toToggle[prop] = !this.state[prop]
     this.setState(toToggle)
+  }
+
+  updateValue(prop, value) {
+    let toUpdate = { needToRecalc: true }
+    toUpdate[prop] = value
+    this.setState(toUpdate)
+  }
+
+  calcPrice() {
+    const priceList = {
+      eCommerce: 5000,
+      cms: 2000,
+      blog: 20000,
+      events: 500,
+      faqs: 500,
+      portfolio: 2000,
+      careers: 3000,
+      mailingList: 300,
+      map: 500,
+      mapLocations: 300,
+      gallery: 600,
+      carousel: 600,
+      extraPages: 400,
+      designPages: 200,
+      contentPages: 300,
+      seo: 150
+    }
+    let price = 0
+    const keys = Object.keys(this.state)
+    keys.forEach(key => {
+      if (this.state[key]) {
+        if (typeof this.state[key] === 'string') {
+          price += priceList[key] * Number(this.state[key])
+        } else {
+          price += priceList[key] || 0
+        }
+      }
+    })
+    this.setState({ price, needToRecalc: false })
+    console.log(price)
   }
 
   renderQuestion() {
@@ -69,27 +125,27 @@ class Question extends React.Component {
       return(
         <form action="">
           <div className="checkbox-flex checkbox">
-            <input type="checkbox" value="Mailing" />
+            <input type="checkbox" value="Mailing" checked={this.state.mailingList} onChange={() => this.toggleCheckbox('mailingList')}/>
             <p className="no-margin">Mailing List Signup </p>
             <p className="no-margin"> - What is this? </p>
           </div>
           <div className="checkbox-flex">
-            <input type="checkbox" value="Map" />
+            <input type="checkbox" value="Map" checked={this.state.map} onChange={() => this.toggleCheckbox('map')}/>
             <p className="no-margin">Map </p>
             <p className="no-margin"> - What is this? </p>
           </div>
           <div className="checkbox-flex">
-            <input type="checkbox" value="Map locations" />
+            <input type="checkbox" value="Map locations" checked={this.state.mapLocations} onChange={() => this.toggleCheckbox('mapLocations')}/>
             <p className="no-margin">Map with multiple locations </p>
             <p className="no-margin"> - What is this? </p>
           </div>
           <div className="checkbox-flex">
-            <input type="checkbox" value="Photo Gallery" />
+            <input type="checkbox" value="Photo Gallery" checked={this.state.gallery} onChange={() => this.toggleCheckbox('gallery')}/>
             <p className="no-margin">Photo Gallery </p>
             <p className="no-margin"> - What is this? </p>
           </div>
           <div className="checkbox-flex">
-            <input type="checkbox" value="Image/Video Carousel" />
+            <input type="checkbox" value="Image/Video Carousel" checked={this.state.carousel} onChange={() => this.toggleCheckbox('carousel')}/>
             <p className="no-margin">Image/Video Carousel </p>
             <p className="no-margin"> - What is this? </p>
           </div>
@@ -97,8 +153,8 @@ class Question extends React.Component {
       )
     } else if (this.props.questionProp == 3) {
       return(
-        <form action="" onSubmit={this.onSubmit()}>
-          <input type="number" name="pages" min="1" max="50" />
+        <form action="" onSubmit={this.onSubmit.bind(this)}>
+          <input type="number" name="pages" min="0" max="50" value={this.state.extraPages} onChange={(e) => this.updateValue('extraPages', e.currentTarget.value)}/>
         </form>
       )
     } else if (this.props.questionProp == 4) {
@@ -114,7 +170,7 @@ class Question extends React.Component {
           </div>
           <br/>
           <label htmlFor="">How many pages do you plan having professionally designed on your website?</label>
-          <input type="number" name="pages" min="1" max="50" />
+          <input type="number" name="pages" min="0" max="50" value={this.state.designPages} onChange={(e) => this.updateValue('designPages', e.currentTarget.value)}/>
         </form>
       )
     } else if (this.props.questionProp == 5) {
@@ -130,13 +186,14 @@ class Question extends React.Component {
           </div>
           <br/>
           <label htmlFor="">For how many pages will a professional develop content?</label>
-          <input type="number" name="pages" min="1" max="50" />
+          <input type="number" name="pages" min="1" max="50" value={this.state.contentPages} onChange={(e) => this.updateValue('contentPages', e.currentTarget.value)}/>
         </form>
       )
     } else if (this.props.questionProp == 6) {
       return(
         <form action="">
-          <select>
+          <select value={this.state.contentPages} onChange={(e) => this.updateValue('contentPages', e.currentTarget.value)}>
+            <option value="1">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -144,6 +201,13 @@ class Question extends React.Component {
             <option value="5">5</option>
           </select>
         </form>
+      )
+    } else if (this.props.questionProp == 7) {
+      return (
+        <div>
+          <h3>This price is:</h3>
+          <h2>£{this.state.price}</h2>
+        </div>
       )
     }
   }
