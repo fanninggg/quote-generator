@@ -5,10 +5,26 @@ import PropTypes from 'prop-types'
 class Question extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      price: 0,
+      eCommerce: false,
+      cms: false,
+      blog: false,
+      events: false,
+      faqs: false,
+      portfolio: false,
+      careers: false
+    }
   }
 
   onSubmit() {
     console.log('test')
+  }
+
+  toggleCheckbox(prop) {
+    let toToggle = {}
+    toToggle[prop] = !this.state[prop]
+    this.setState(toToggle)
   }
 
   renderQuestion() {
@@ -20,31 +36,31 @@ class Question extends React.Component {
       return (
         <form action="">
           <div className="checkbox">
-            <input type="checkbox" value="E-commerce" id="E-Commerce_checkbox"/>
+            <input type="checkbox" value="E-commerce" id="E-Commerce_checkbox" checked={this.state.eCommerce} onChange={() => this.toggleCheckbox('eCommerce')}/>
             <label htmlFor="E-Commerce_checkbox">E-Commerce</label>
           </div>
           <div className="checkbox">
-            <input type="checkbox" value="CMS" id="CMS_checkbox" />
+            <input type="checkbox" value="CMS" id="CMS_checkbox" checked={this.state.cms} onChange={() => this.toggleCheckbox('cms')}/>
             <label htmlFor="CMS_checkbox">CMS</label>
           </div>
           <div className="checkbox">
-            <input type="checkbox" value="Blog" id="Blog_checkbox"/>
+            <input type="checkbox" value="Blog" id="Blog_checkbox" checked={this.state.blog} onChange={() => this.toggleCheckbox('blog')}/>
             <label htmlFor="Blog_checkbox">Blog</label>
           </div>
           <div className="checkbox">
-            <input type="checkbox" value="Events" id="Events_checkbox"/>
+            <input type="checkbox" value="Events" id="Events_checkbox" checked={this.state.events} onChange={() => this.toggleCheckbox('events')}/>
             <label htmlFor="Events_checkbox">Events</label>
           </div>
           <div className="checkbox">
-            <input type="checkbox" value="FAQs" id="FAQs_checkbox"/>
+            <input type="checkbox" value="FAQs" id="FAQs_checkbox" checked={this.state.faqs} onChange={() => this.toggleCheckbox('faqs')}/>
             <label htmlFor="FAQs_checkbox">FAQs</label>
           </div>
           <div className="checkbox">
-            <input type="checkbox" value="Portfolio" id="Portfolio_checkbox"/>
+            <input type="checkbox" value="Portfolio" id="Portfolio_checkbox" checked={this.state.portfolio} onChange={() => this.toggleCheckbox('portfolio')}/>
             <label htmlFor="Portfolio_checkbox">Portfolio</label>
           </div>
           <div className="checkbox">
-            <input type="checkbox" value="Careers" id="Careers_checkbox"/>
+            <input type="checkbox" value="Careers" id="Careers_checkbox" checked={this.state.careers} onChange={() => this.toggleCheckbox('careers')}/>
             <label htmlFor="Careers_checkbox">Careers</label>
           </div>
         </form>
