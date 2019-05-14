@@ -37,31 +37,31 @@ class Question extends React.Component {
         <form action="">
           <div className="checkbox">
             <input type="checkbox" value="E-commerce" id="E-Commerce_checkbox" checked={this.state.eCommerce} onChange={() => this.toggleCheckbox('eCommerce')}/>
-            <label htmlFor="E-Commerce_checkbox">E-Commerce</label>
+            <label htmlFor="E-Commerce_checkbox"><div className="spacer"></div>E-Commerce</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="CMS" id="CMS_checkbox" checked={this.state.cms} onChange={() => this.toggleCheckbox('cms')}/>
-            <label htmlFor="CMS_checkbox">CMS</label>
+            <label htmlFor="CMS_checkbox"><div className="spacer"></div>CMS</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Blog" id="Blog_checkbox" checked={this.state.blog} onChange={() => this.toggleCheckbox('blog')}/>
-            <label htmlFor="Blog_checkbox">Blog</label>
+            <label htmlFor="Blog_checkbox"><div className="spacer"></div>Blog</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Events" id="Events_checkbox" checked={this.state.events} onChange={() => this.toggleCheckbox('events')}/>
-            <label htmlFor="Events_checkbox">Events</label>
+            <label htmlFor="Events_checkbox"><div className="spacer"></div>Events</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="FAQs" id="FAQs_checkbox" checked={this.state.faqs} onChange={() => this.toggleCheckbox('faqs')}/>
-            <label htmlFor="FAQs_checkbox">FAQs</label>
+            <label htmlFor="FAQs_checkbox"><div className="spacer"></div>FAQs</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Portfolio" id="Portfolio_checkbox" checked={this.state.portfolio} onChange={() => this.toggleCheckbox('portfolio')}/>
-            <label htmlFor="Portfolio_checkbox">Portfolio</label>
+            <label htmlFor="Portfolio_checkbox"><div className="spacer"></div>Portfolio</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Careers" id="Careers_checkbox" checked={this.state.careers} onChange={() => this.toggleCheckbox('careers')}/>
-            <label htmlFor="Careers_checkbox">Careers</label>
+            <label htmlFor="Careers_checkbox"><div className="spacer"></div>Careers</label>
           </div>
         </form>
       )
