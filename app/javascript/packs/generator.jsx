@@ -22,7 +22,8 @@ class Question extends React.Component {
       carousel: false,
       extraPages: 0,
       designPages: 0,
-      contentPages: 0
+      contentPages: 0,
+      seo: 0
     }
   }
 
@@ -64,7 +65,9 @@ class Question extends React.Component {
       carousel: 600,
       extraPages: 400,
       designPages: 200,
-      contentPages: 300    }
+      contentPages: 300,
+      seo: 150
+    }
     let price = 0
     const keys = Object.keys(this.state)
     keys.forEach(key => {
@@ -189,7 +192,8 @@ class Question extends React.Component {
     } else if (this.props.questionProp == 6) {
       return(
         <form action="">
-          <select>
+          <select value={this.state.contentPages} onChange={(e) => this.updateValue('contentPages', e.currentTarget.value)}>
+            <option value="1">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
