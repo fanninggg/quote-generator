@@ -7,6 +7,10 @@ class Question extends React.Component {
     super(props)
   }
 
+  onSubmit() {
+    console.log('test')
+  }
+
   renderQuestion() {
     if (this.props.questionProp == 0) {
       return (
@@ -15,52 +19,40 @@ class Question extends React.Component {
     } else if (this.props.questionProp == 1) {
       return (
         <form action="">
-          <div className="checkbox-flex">
-            <input type="checkbox" value="E-commerce" />
-            <p className="no-margin">E-commerce </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="E-commerce" id="E-Commerce_checkbox"/>
+            <label htmlFor="E-Commerce_checkbox">E-Commerce</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="CMS" />
-            <p className="no-margin">Content Management System </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="CMS" id="CMS_checkbox" />
+            <label htmlFor="CMS_checkbox">CMS</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Blog" />
-            <p className="no-margin">Blog </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="Blog" id="Blog_checkbox"/>
+            <label htmlFor="Blog_checkbox">Blog</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Events" />
-            <p className="no-margin">Events </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="Events" id="Events_checkbox"/>
+            <label htmlFor="Events_checkbox">Events</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Specials" />
-            <p className="no-margin">Specials </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="FAQs" id="FAQs_checkbox"/>
+            <label htmlFor="FAQs_checkbox">FAQs</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="FAQs" />
-            <p className="no-margin">FAQs </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="Portfolio" id="Portfolio_checkbox"/>
+            <label htmlFor="Portfolio_checkbox">Portfolio</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Portfolio" />
-            <p className="no-margin">Portfolio </p>
-            <p className="no-margin"> - What is this? </p>
-          </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Careers" />
-            <p className="no-margin">Careers/Jobs </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="Careers" id="Careers_checkbox"/>
+            <label htmlFor="Careers_checkbox">Careers</label>
           </div>
         </form>
       )
     } else if (this.props.questionProp == 2) {
       return(
         <form action="">
-          <div className="checkbox-flex">
+          <div className="checkbox-flex checkbox">
             <input type="checkbox" value="Mailing" />
             <p className="no-margin">Mailing List Signup </p>
             <p className="no-margin"> - What is this? </p>
@@ -89,7 +81,7 @@ class Question extends React.Component {
       )
     } else if (this.props.questionProp == 3) {
       return(
-        <form action="">
+        <form action="" onSubmit={this.onSubmit()}>
           <input type="number" name="pages" min="1" max="50" />
         </form>
       )
@@ -157,7 +149,19 @@ class BackButton extends React.Component {
   renderBackButton() {
     if (this.props.stageProp > 0) {
       return(
-        <p onClick={this.props.handleClick}>Previous</p>
+        <div className="generator-button" onClick={this.props.handleClick}>
+          <div className="generator-button-inner">
+            <p>Previous</p>
+          </div>
+        </div>
+      )
+    } else {
+      return(
+        <div className="generator-button hidden" onClick={this.props.handleClick}>
+          <div className="generator-button-inner">
+            <p>Previous</p>
+          </div>
+        </div>
       )
     }
   }
@@ -179,7 +183,19 @@ class NextButton extends React.Component {
   renderNextButton() {
     if (this.props.stageProp < 7) {
       return(
-        <p onClick={this.props.handleClick}>Next</p>
+        <div className="generator-button" onClick={this.props.handleClick}>
+          <div className="generator-button-inner">
+            <p>Next</p>
+          </div>
+        </div>
+      )
+    } else {
+      return(
+        <div className="generator-button hidden" onClick={this.props.handleClick}>
+          <div className="generator-button-inner">
+            <p>Next</p>
+          </div>
+        </div>
       )
     }
   }
@@ -244,11 +260,23 @@ class Generator extends React.Component {
   render() {
     console.log(this.state.stage)
     return(
-      <div>
-        {this.renderTitle()}
-        <Question questionProp={this.state.stage} />
-        <BackButton handleClick={this.previousStage.bind(this)} stageProp={this.state.stage}/>
-        <NextButton handleClick={this.nextStage.bind(this)} stageProp={this.state.stage}/>
+      <div className="generator-container">
+        <div>
+          <h1 className="">Free Website Quote Generator</h1>
+          <h3>How much does a website cost?</h3>
+          <p>This is the question we get asked more than any other and it's kind of like asking a builder how much a house will cost without giving them any blueprints. However, if you could tell a builder how many rooms the house will have, what materials it will be made from and whether it will have any special features then they could probably give you a rough estimate. That's the idea here as well. If you tell us a few things about the website you want to build we will give you an estimate of how much it will cost. </p>
+          <p>If you are in the market for a mobile app or something a bit more complex than the average website, then you are probably better off talking to us directly here. This tool is designed to give a ballpark figure for projects, it is to help you with budgeting and discovery, it does not provide a hard estimate, if you want to get an exact figure then we would be happy to meet up for a chat about specifics.  </p>
+        </div>
+        <div className="react-section">
+          <div className="question-section">
+            {this.renderTitle()}
+            <Question questionProp={this.state.stage} />
+          </div>
+          <div className="buttons">
+            <BackButton handleClick={this.previousStage.bind(this)} stageProp={this.state.stage}/>
+            <NextButton handleClick={this.nextStage.bind(this)} stageProp={this.state.stage}/>
+          </div>
+        </div>
       </div>
     )
   }

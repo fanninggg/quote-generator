@@ -14,10 +14,11 @@
  *= require_self
  */
 
-.no-margin {
-  margin: 0;
-}
+@import "generator/layout";
+@import "generator/text";
+@import "generator/forms";
 
-.checkbox-flex {
-  display: flex;
+body {
+  font-family: 'Heebo', sans-serif;
+  color: #1E1E1E;
 }
