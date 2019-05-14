@@ -20,7 +20,9 @@ class Question extends React.Component {
       mapLocations: false,
       gallery: false,
       carousel: false,
-      extraPages: 0
+      extraPages: 0,
+      designPages: 0,
+      contentPages: 0
     }
   }
 
@@ -60,8 +62,9 @@ class Question extends React.Component {
       mapLocations: 300,
       gallery: 600,
       carousel: 600,
-      extraPages: 400
-    }
+      extraPages: 400,
+      designPages: 200,
+      contentPages: 300    }
     let price = 0
     const keys = Object.keys(this.state)
     keys.forEach(key => {
@@ -164,7 +167,7 @@ class Question extends React.Component {
           </div>
           <br/>
           <label htmlFor="">How many pages do you plan having professionally designed on your website?</label>
-          <input type="number" name="pages" min="1" max="50" />
+          <input type="number" name="pages" min="0" max="50" value={this.state.designPages} onChange={(e) => this.updateValue('designPages', e.currentTarget.value)}/>
         </form>
       )
     } else if (this.props.questionProp == 5) {
@@ -180,7 +183,7 @@ class Question extends React.Component {
           </div>
           <br/>
           <label htmlFor="">For how many pages will a professional develop content?</label>
-          <input type="number" name="pages" min="1" max="50" />
+          <input type="number" name="pages" min="1" max="50" value={this.state.contentPages} onChange={(e) => this.updateValue('contentPages', e.currentTarget.value)}/>
         </form>
       )
     } else if (this.props.questionProp == 6) {
@@ -194,6 +197,13 @@ class Question extends React.Component {
             <option value="5">5</option>
           </select>
         </form>
+      )
+    } else if (this.props.questionProp == 7) {
+      return (
+        <div>
+          <h3>This price is:</h3>
+          <h2>£{this.state.price}</h2>
+        </div>
       )
     }
   }
