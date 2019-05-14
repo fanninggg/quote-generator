@@ -21,31 +21,31 @@ class Question extends React.Component {
         <form action="">
           <div className="checkbox">
             <input type="checkbox" value="E-commerce" id="E-Commerce_checkbox"/>
-            <label htmlFor="E-Commerce_checkbox">E-Commerce</label>
+            <label htmlFor="E-Commerce_checkbox"><div className="spacer"></div>E-Commerce</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="CMS" id="CMS_checkbox" />
-            <label htmlFor="CMS_checkbox">CMS</label>
+            <label htmlFor="CMS_checkbox"><div className="spacer"></div>CMS</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Blog" id="Blog_checkbox"/>
-            <label htmlFor="Blog_checkbox">Blog</label>
+            <label htmlFor="Blog_checkbox"><div className="spacer"></div>Blog</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Events" id="Events_checkbox"/>
-            <label htmlFor="Events_checkbox">Events</label>
+            <label htmlFor="Events_checkbox"><div className="spacer"></div>Events</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="FAQs" id="FAQs_checkbox"/>
-            <label htmlFor="FAQs_checkbox">FAQs</label>
+            <label htmlFor="FAQs_checkbox"><div className="spacer"></div>FAQs</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Portfolio" id="Portfolio_checkbox"/>
-            <label htmlFor="Portfolio_checkbox">Portfolio</label>
+            <label htmlFor="Portfolio_checkbox"><div className="spacer"></div>Portfolio</label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Careers" id="Careers_checkbox"/>
-            <label htmlFor="Careers_checkbox">Careers</label>
+            <label htmlFor="Careers_checkbox"><div className="spacer"></div>Careers</label>
           </div>
         </form>
       )
