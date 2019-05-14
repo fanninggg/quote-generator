@@ -1,0 +1,47 @@
+.generator-container {
+  padding: 20px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.react-section {
+  position: relative;
+  height: 450px;
+}
+
+.question-section {
+  height: 80%;
+}
+
+.buttons {
+  display: flex;
+  width: 500px;
+  justify-content: space-around;
+}
+
+.generator-button {
+  display: flex;
+  border-radius: 50px;
+  width: 150px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #7B59EC, #340ABC);
+  cursor: pointer;
+}
+
+.generator-button-inner {
+  background: #fff;
+  width: 140px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hidden {
+  opacity: 0;
+}
