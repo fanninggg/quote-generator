@@ -167,30 +167,25 @@ class Question extends React.Component {
     } else if (this.props.questionProp == 2) {
       return(
         <form action="">
-          <div className="checkbox-flex checkbox">
-            <input type="checkbox" value="Mailing" checked={this.state.mailingList} onChange={() => this.toggleCheckbox('mailingList')}/>
-            <p className="no-margin">Mailing List Signup </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="Mailing" id="Mailing_checkbox" checked={this.state.mailingList} onChange={() => this.toggleCheckbox('mailingList')}/>
+            <label htmlFor="Mailing_checkbox"><div className="spacer"></div>Mailing List Signup</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Map" checked={this.state.map} onChange={() => this.toggleCheckbox('map')}/>
-            <p className="no-margin">Map </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="Map" id="Map_checkbox" checked={this.state.map} onChange={() => this.toggleCheckbox('map')}/>
+            <label htmlFor="Map_checkbox"><div className="spacer"></div>Map</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Map locations" checked={this.state.mapLocations} onChange={() => this.toggleCheckbox('mapLocations')}/>
-            <p className="no-margin">Map with multiple locations </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="Map locations" id="Dynamic_map_checkbox" checked={this.state.mapLocations} onChange={() => this.toggleCheckbox('mapLocations')}/>
+            <label htmlFor="Dynamic_map_checkbox"><div className="spacer"></div>Dynamic Map</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Photo Gallery" checked={this.state.gallery} onChange={() => this.toggleCheckbox('gallery')}/>
-            <p className="no-margin">Photo Gallery </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="Photo Gallery" id="Gallery_checkbox" checked={this.state.gallery} onChange={() => this.toggleCheckbox('gallery')}/>
+            <label htmlFor="Gallery_checkbox"><div className="spacer"></div>Photo Gallery</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Image/Video Carousel" checked={this.state.carousel} onChange={() => this.toggleCheckbox('carousel')}/>
-            <p className="no-margin">Image/Video Carousel </p>
-            <p className="no-margin"> - What is this? </p>
+          <div className="checkbox">
+            <input type="checkbox" value="Image/Video Carousel" id="Carousel_checkbox" checked={this.state.carousel} onChange={() => this.toggleCheckbox('carousel')}/>
+            <label htmlFor="Carousel_checkbox"><div className="spacer"></div>Image/Video Carousel</label>
           </div>
         </form>
       )
@@ -203,13 +198,13 @@ class Question extends React.Component {
     } else if (this.props.questionProp == 4) {
       return(
         <form action="">
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Yes" />
-            <p className="no-margin">Yes</p>
+          <div className="checkbox">
+            <input type="checkbox" id="Designs_yes_checkbox" value="Yes" />
+            <label htmlFor="Designs_yes_checkbox"><div className="spacer"></div>Yes</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="No" />
-            <p className="no-margin">No</p>
+          <div className="checkbox">
+            <input type="checkbox" id="Designs_no_checkbox" value="No" />
+            <label htmlFor="Designs_no_checkbox"><div className="spacer"></div>No</label>
           </div>
           <br/>
           <label htmlFor="">How many pages do you plan having professionally designed on your website?</label>
@@ -219,13 +214,13 @@ class Question extends React.Component {
     } else if (this.props.questionProp == 5) {
       return(
         <form action="">
-          <div className="checkbox-flex">
-            <input type="checkbox" value="Yes" />
-            <p className="no-margin">Yes</p>
+          <div className="checkbox">
+            <input type="checkbox" id="Content_yes_checkbox" value="Yes" />
+            <label htmlFor="Content_yes_checkbox"><div className="spacer"></div>Yes</label>
           </div>
-          <div className="checkbox-flex">
-            <input type="checkbox" value="No" />
-            <p className="no-margin">No</p>
+          <div className="checkbox">
+            <input type="checkbox" id="Content_no_checkbox" value="No" />
+            <label htmlFor="Content_no_checkbox"><div className="spacer"></div>No</label>
           </div>
           <br/>
           <label htmlFor="">For how many pages will a professional develop content?</label>
@@ -343,31 +338,31 @@ class Generator extends React.Component {
   renderTitle() {
     if (this.state.stage == 0) {
       return(
-        <h1>Get Started</h1>
+        <h1 className="generator-question">Get Started</h1>
       )
     } else if (this.state.stage == 1) {
       return(
-        <h1>Which services will your website require?</h1>
+        <h1 className="generator-question">Which services will your website require?</h1>
       )
     } else if (this.state.stage == 2) {
       return(
-        <h1>Which features will your website require?</h1>
+        <h1 className="generator-question">Which features will your website require?</h1>
       )
     } else if (this.state.stage == 3) {
       return(
-        <h1>How many extra pages does you site need? (Other than those needed for services and features)</h1>
+        <h1 className="generator-question">Will you site require extra pages beyond those selected previously? If so, how many?</h1>
       )
     } else if (this.state.stage == 4) {
       return(
-        <h1>Do you have designs for all pages on your site already?</h1>
+        <h1 className="generator-question">Do you have designs for all pages on your site already?</h1>
       )
     } else if (this.state.stage == 5) {
       return(
-        <h1>Do you have content for all pages your site already?</h1>
+        <h1 className="generator-question">Do you have content for all pages your site already?</h1>
       )
     } else if (this.state.stage == 6) {
       return(
-        <h1>On a scale of 1-5 how important is ranking your website on the first page of Google </h1>
+        <h1 className="generator-question">On a scale of 1-5 how important is ranking your website on the first page of Google </h1>
       )
     }
   }
@@ -387,8 +382,8 @@ class Generator extends React.Component {
         <div>
           <h1 className="">Free Website Quote Generator</h1>
           <h3>How much does a website cost?</h3>
-          <p>This is the question we get asked more than any other and it's kind of like asking a builder how much a house will cost without giving them any blueprints. However, if you could tell a builder how many rooms the house will have, what materials it will be made from and whether it will have any special features then they could probably give you a rough estimate. That's the idea here as well. If you tell us a few things about the website you want to build we will give you an estimate of how much it will cost. </p>
-          <p>If you are in the market for a mobile app or something a bit more complex than the average website, then you are probably better off talking to us directly here. This tool is designed to give a ballpark figure for projects, it is to help you with budgeting and discovery, it does not provide a hard estimate, if you want to get an exact figure then we would be happy to meet up for a chat about specifics.  </p>
+          <p className="generator-para">This is the question we get asked more than any other and it's kind of like asking a builder how much a house will cost without giving them any blueprints. However, if you could tell a builder how many rooms the house will have, what materials it will be made from and whether it will have any special features then they could probably give you a rough estimate. That's the idea here as well. If you tell us a few things about the website you want to build we will give you an estimate of how much it will cost. </p>
+          <p className="generator-para">If you are in the market for a mobile app or something a bit more complex than the average website, then you are probably better off talking to us directly here. This tool is designed to give a ballpark figure for projects, it is to help you with budgeting and discovery, it does not provide a hard estimate, if you want to get an exact figure then we would be happy to meet up for a chat about specifics.  </p>
         </div>
         <div className="react-section">
           <div className="question-section">
