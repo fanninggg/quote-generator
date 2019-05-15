@@ -5612,6 +5612,11 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
+react-png-tooltip@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-png-tooltip/-/react-png-tooltip-1.2.0.tgz#895ebad1a43ccba9d65ea70365e14513110fdc42"
+  integrity sha512-huWkqQVZ/oDZ9D8T8cmE7YjeCsCQbGui7gaSkYtk1EmFJosfzF8WfQ3zuTk5Am/MHBbVUsmvZw60KO3sel2vsA==
+
 react@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"

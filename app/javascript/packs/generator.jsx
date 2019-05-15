@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import Tooltip from 'react-png-tooltip'
 
 class Question extends React.Component {
   constructor(props) {
@@ -94,30 +95,72 @@ class Question extends React.Component {
           <div className="checkbox">
             <input type="checkbox" value="E-commerce" id="E-Commerce_checkbox" checked={this.state.eCommerce} onChange={() => this.toggleCheckbox('eCommerce')}/>
             <label htmlFor="E-Commerce_checkbox"><div className="spacer"></div>E-Commerce</label>
+            <Tooltip shouldDisableHover={true}>
+              <div>
+                <p>I am a test tooltip for E-Commerce</p>
+                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+              </div>
+            </Tooltip>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="CMS" id="CMS_checkbox" checked={this.state.cms} onChange={() => this.toggleCheckbox('cms')}/>
             <label htmlFor="CMS_checkbox"><div className="spacer"></div>CMS</label>
+            <Tooltip shouldDisableHover={true}>
+              <div>
+                <p>I am a test tooltip for CMS</p>
+                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+              </div>
+            </Tooltip>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Blog" id="Blog_checkbox" checked={this.state.blog} onChange={() => this.toggleCheckbox('blog')}/>
             <label htmlFor="Blog_checkbox"><div className="spacer"></div>Blog</label>
+            <Tooltip shouldDisableHover={true}>
+              <div>
+                <p>I am a test tooltip for blogs</p>
+                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+              </div>
+            </Tooltip>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Events" id="Events_checkbox" checked={this.state.events} onChange={() => this.toggleCheckbox('events')}/>
             <label htmlFor="Events_checkbox"><div className="spacer"></div>Events</label>
+            <Tooltip shouldDisableHover={true}>
+              <div>
+                <p>I am a test tooltip for events</p>
+                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+              </div>
+            </Tooltip>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="FAQs" id="FAQs_checkbox" checked={this.state.faqs} onChange={() => this.toggleCheckbox('faqs')}/>
             <label htmlFor="FAQs_checkbox"><div className="spacer"></div>FAQs</label>
+            <Tooltip shouldDisableHover={true}>
+              <div>
+                <p>I am a test tooltip for FAQs</p>
+                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+              </div>
+            </Tooltip>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Portfolio" id="Portfolio_checkbox" checked={this.state.portfolio} onChange={() => this.toggleCheckbox('portfolio')}/>
             <label htmlFor="Portfolio_checkbox"><div className="spacer"></div>Portfolio</label>
+            <Tooltip shouldDisableHover={true}>
+              <div>
+                <p>I am a test tooltip for portfolios</p>
+                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+              </div>
+            </Tooltip>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Careers" id="Careers_checkbox" checked={this.state.careers} onChange={() => this.toggleCheckbox('careers')}/>
             <label htmlFor="Careers_checkbox"><div className="spacer"></div>Careers</label>
+            <Tooltip shouldDisableHover={true}>
+              <div>
+                <p>I am a test tooltip for careers</p>
+                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+              </div>
+            </Tooltip>
           </div>
         </form>
       )
