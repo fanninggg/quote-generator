@@ -94,13 +94,15 @@ class Question extends React.Component {
         <form action="">
           <div className="checkbox">
             <input type="checkbox" value="E-commerce" id="E-Commerce_checkbox" checked={this.state.eCommerce} onChange={() => this.toggleCheckbox('eCommerce')}/>
-            <label htmlFor="E-Commerce_checkbox"><div className="spacer"></div>E-Commerce</label>
-            <Tooltip shouldDisableHover={true}>
-              <div>
-                <p>I am a test tooltip for E-Commerce</p>
-                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
-              </div>
-            </Tooltip>
+            <label htmlFor="E-Commerce_checkbox"><div className="spacer"></div>
+              E-Commerce
+              <Tooltip shouldDisableHover={true}>
+                <div>
+                  <p>I am a test tooltip for E-Commerce</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="CMS" id="CMS_checkbox" checked={this.state.cms} onChange={() => this.toggleCheckbox('cms')}/>
