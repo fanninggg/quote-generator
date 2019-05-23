@@ -24,7 +24,9 @@ class Question extends React.Component {
       extraPages: 0,
       designPages: 0,
       contentPages: 0,
-      seo: 0
+      seo: 0,
+      designNeeded: false,
+      contentNeeded: false
     }
   }
 
@@ -52,13 +54,13 @@ class Question extends React.Component {
 
   calcPrice() {
     const priceList = {
-      eCommerce: 5000,
+      eCommerce: 4000,
       cms: 2000,
-      blog: 20000,
+      blog: 3000,
       events: 500,
       faqs: 500,
       portfolio: 2000,
-      careers: 3000,
+      careers: 1000,
       mailingList: 300,
       map: 500,
       mapLocations: 300,
@@ -84,6 +86,28 @@ class Question extends React.Component {
     console.log(price)
   }
 
+  designPagesForm() {
+    if(this.state.designNeeded == true) {
+      return(
+        <div>
+          <label htmlFor="">How many pages do you plan having professionally designed on your website?</label>
+          <input type="number" name="pages" min="0" max="50" value={this.state.designPages} onChange={(e) => this.updateValue('designPages', e.currentTarget.value)}/>
+        </div>
+      )
+    }
+  }
+
+  contentPagesForm() {
+    if(this.state.contentNeeded == true) {
+      return(
+        <div>
+          <label htmlFor="">For how many pages will a professional develop content?</label>
+          <input type="number" name="pages" min="1" max="50" value={this.state.contentPages} onChange={(e) => this.updateValue('contentPages', e.currentTarget.value)}/>
+        </div>
+      )
+    }
+  }
+
   renderQuestion() {
     if (this.props.questionProp == 0) {
       return (
@@ -94,75 +118,87 @@ class Question extends React.Component {
         <form action="">
           <div className="checkbox">
             <input type="checkbox" value="E-commerce" id="E-Commerce_checkbox" checked={this.state.eCommerce} onChange={() => this.toggleCheckbox('eCommerce')}/>
-            <label htmlFor="E-Commerce_checkbox"><div className="spacer"></div>
-              E-Commerce
-              <Tooltip shouldDisableHover={true}>
-                <div>
-                  <p>I am a test tooltip for E-Commerce</p>
-                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+            <label htmlFor="E-Commerce_checkbox"><div className="spacer"></div>E-Commerce
+            <div className="spacer"></div>
+              <Tooltip>
+                <div fill="#734EEB" className="tooltip">
+                  <p>Turn your website into an online store. Adding E-Commerce funstionality to your website will allow you to sell what you want, where you want and how you want.</p>
+                  <a rel="nofollow" href="https://www.ties.com/" target="_blank">E-Commerce example.</a>
                 </div>
               </Tooltip>
             </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="CMS" id="CMS_checkbox" checked={this.state.cms} onChange={() => this.toggleCheckbox('cms')}/>
-            <label htmlFor="CMS_checkbox"><div className="spacer"></div>CMS</label>
-            <Tooltip shouldDisableHover={true}>
-              <div>
-                <p>I am a test tooltip for CMS</p>
-                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
-              </div>
-            </Tooltip>
+            <label htmlFor="CMS_checkbox"><div className="spacer"></div>CMS
+              <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>Take control of your site. Implementing a Content Management System allows you to stay in control of your website. Allowing you to change the content and styling at will.</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Blog" id="Blog_checkbox" checked={this.state.blog} onChange={() => this.toggleCheckbox('blog')}/>
-            <label htmlFor="Blog_checkbox"><div className="spacer"></div>Blog</label>
-            <Tooltip shouldDisableHover={true}>
-              <div>
-                <p>I am a test tooltip for blogs</p>
-                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
-              </div>
-            </Tooltip>
+            <label htmlFor="Blog_checkbox"><div className="spacer"></div>Blog
+            <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>Get your voice out there. A blog gives your opinions a platform to </p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Events" id="Events_checkbox" checked={this.state.events} onChange={() => this.toggleCheckbox('events')}/>
-            <label htmlFor="Events_checkbox"><div className="spacer"></div>Events</label>
-            <Tooltip shouldDisableHover={true}>
-              <div>
-                <p>I am a test tooltip for events</p>
-                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
-              </div>
-            </Tooltip>
+            <label htmlFor="Events_checkbox"><div className="spacer"></div>Events
+            <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>I am a test tooltip for events</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="FAQs" id="FAQs_checkbox" checked={this.state.faqs} onChange={() => this.toggleCheckbox('faqs')}/>
-            <label htmlFor="FAQs_checkbox"><div className="spacer"></div>FAQs</label>
-            <Tooltip shouldDisableHover={true}>
-              <div>
-                <p>I am a test tooltip for FAQs</p>
-                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
-              </div>
-            </Tooltip>
+            <label htmlFor="FAQs_checkbox"><div className="spacer"></div>FAQs
+            <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>I am a test tooltip for FAQs</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Portfolio" id="Portfolio_checkbox" checked={this.state.portfolio} onChange={() => this.toggleCheckbox('portfolio')}/>
-            <label htmlFor="Portfolio_checkbox"><div className="spacer"></div>Portfolio</label>
-            <Tooltip shouldDisableHover={true}>
-              <div>
-                <p>I am a test tooltip for portfolios</p>
-                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
-              </div>
-            </Tooltip>
+            <label htmlFor="Portfolio_checkbox"><div className="spacer"></div>Portfolio
+            <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>I am a test tooltip for portfolios</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Careers" id="Careers_checkbox" checked={this.state.careers} onChange={() => this.toggleCheckbox('careers')}/>
-            <label htmlFor="Careers_checkbox"><div className="spacer"></div>Careers</label>
-            <Tooltip shouldDisableHover={true}>
-              <div>
-                <p>I am a test tooltip for careers</p>
-                <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
-              </div>
-            </Tooltip>
+            <label htmlFor="Careers_checkbox"><div className="spacer"></div>Careers
+            <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>I am a test tooltip for careers</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
         </form>
       )
@@ -171,23 +207,63 @@ class Question extends React.Component {
         <form action="">
           <div className="checkbox">
             <input type="checkbox" value="Mailing" id="Mailing_checkbox" checked={this.state.mailingList} onChange={() => this.toggleCheckbox('mailingList')}/>
-            <label htmlFor="Mailing_checkbox"><div className="spacer"></div>Mailing List Signup</label>
+            <label htmlFor="Mailing_checkbox"><div className="spacer"></div>Mailing List Signup
+              <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>I am a test tooltip for careers</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Map" id="Map_checkbox" checked={this.state.map} onChange={() => this.toggleCheckbox('map')}/>
-            <label htmlFor="Map_checkbox"><div className="spacer"></div>Map</label>
+            <label htmlFor="Map_checkbox"><div className="spacer"></div>Map
+              <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>I am a test tooltip for careers</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Map locations" id="Dynamic_map_checkbox" checked={this.state.mapLocations} onChange={() => this.toggleCheckbox('mapLocations')}/>
-            <label htmlFor="Dynamic_map_checkbox"><div className="spacer"></div>Dynamic Map</label>
+            <label htmlFor="Dynamic_map_checkbox"><div className="spacer"></div>Dynamic Map
+              <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>I am a test tooltip for careers</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Photo Gallery" id="Gallery_checkbox" checked={this.state.gallery} onChange={() => this.toggleCheckbox('gallery')}/>
-            <label htmlFor="Gallery_checkbox"><div className="spacer"></div>Photo Gallery</label>
+            <label htmlFor="Gallery_checkbox"><div className="spacer"></div>Photo Gallery
+              <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>I am a test tooltip for careers</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" value="Image/Video Carousel" id="Carousel_checkbox" checked={this.state.carousel} onChange={() => this.toggleCheckbox('carousel')}/>
-            <label htmlFor="Carousel_checkbox"><div className="spacer"></div>Image/Video Carousel</label>
+            <label htmlFor="Carousel_checkbox"><div className="spacer"></div>Image/Video Carousel
+              <div className="spacer"></div>
+              <Tooltip>
+                <div>
+                  <p>I am a test tooltip for careers</p>
+                  <a href="https://www.hoxton-digital.com" target="_blank">I am a test link</a>
+                </div>
+              </Tooltip>
+            </label>
           </div>
         </form>
       )
@@ -201,32 +277,30 @@ class Question extends React.Component {
       return(
         <form action="">
           <div className="checkbox">
-            <input type="checkbox" id="Designs_yes_checkbox" value="Yes" />
+            <input type="checkbox" id="Designs_yes_checkbox" value="Yes" checked={!this.state.designNeeded} onChange={() => this.toggleCheckbox('designNeeded')}/>
             <label htmlFor="Designs_yes_checkbox"><div className="spacer"></div>Yes</label>
           </div>
           <div className="checkbox">
-            <input type="checkbox" id="Designs_no_checkbox" value="No" />
+            <input type="checkbox" id="Designs_no_checkbox" value="No" checked={this.state.designNeeded} onChange={() => this.toggleCheckbox('designNeeded')}/>
             <label htmlFor="Designs_no_checkbox"><div className="spacer"></div>No</label>
           </div>
           <br/>
-          <label htmlFor="">How many pages do you plan having professionally designed on your website?</label>
-          <input type="number" name="pages" min="0" max="50" value={this.state.designPages} onChange={(e) => this.updateValue('designPages', e.currentTarget.value)}/>
+          {this.designPagesForm()}
         </form>
       )
     } else if (this.props.questionProp == 5) {
       return(
         <form action="">
           <div className="checkbox">
-            <input type="checkbox" id="Content_yes_checkbox" value="Yes" />
+            <input type="checkbox" id="Content_yes_checkbox" value="Yes" checked={!this.state.contentNeeded} onChange={() => this.toggleCheckbox('contentNeeded')}/>
             <label htmlFor="Content_yes_checkbox"><div className="spacer"></div>Yes</label>
           </div>
           <div className="checkbox">
-            <input type="checkbox" id="Content_no_checkbox" value="No" />
+            <input type="checkbox" id="Content_no_checkbox" value="No" checked={this.state.contentNeeded} onChange={() => this.toggleCheckbox('contentNeeded')}/>
             <label htmlFor="Content_no_checkbox"><div className="spacer"></div>No</label>
           </div>
           <br/>
-          <label htmlFor="">For how many pages will a professional develop content?</label>
-          <input type="number" name="pages" min="1" max="50" value={this.state.contentPages} onChange={(e) => this.updateValue('contentPages', e.currentTarget.value)}/>
+          {this.contentPagesForm()}
         </form>
       )
     } else if (this.props.questionProp == 6) {
